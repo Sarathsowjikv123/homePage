@@ -37,33 +37,40 @@
         <center><img src="sympologo.png" alt="sympologo"></center>
     </div>
     <div class="sympoquote"><br>
-        <center><h1 class="animate__animated animate__rollin animate__delay-1s" style="color:#ff2d75; font-size: 30px;"><span class="auto-type"></span></h1></center><br>
+        <center>
+            <h1 class="animate__animated animate__rollin animate__delay-1s" style="color:#ff2d75; font-size: 30px;">
+                <span class="auto-type"></span>
+            </h1>
+        </center><br>
         <center><input type="button" value="Register"></center><br>
-        <center><h1 style="color: white;font-family: 'Fasthand', cursive;font-family: 'Kalam', cursive;;">Event Starts In...</h1></center><br>
+        <center>
+            <h1 style="color: white;font-family: 'Fasthand', cursive;font-family: 'Kalam', cursive;;">Event Starts In...
+            </h1>
+        </center><br>
     </div>
     <div class="countDown">
         <div id="time">
             <div class="circle" style="--clr:#ffffff;">
                 <div class="dots day_dot"></div>
                 <svg>
-                    <circle cx="70" cy="70" r="70"></circle>
-                    <circle cx="70" cy="70" r="70" id="dd"></circle>
+                    <circle cx="70" cy="70" r="70" class="dc"></circle>
+                    <circle cx="70" cy="70" r="70" id="dd" class="dc"></circle>
                 </svg>
                 <div id="days">00</div>
             </div>
             <div class="circle" style="--clr:#ff2972;">
                 <div class="dots hr_dot"></div>
                 <svg>
-                    <circle cx="70" cy="70" r="70"></circle>
-                    <circle cx="70" cy="70" r="70" id="hh"></circle>
+                    <circle cx="70" cy="70" r="70" class="hc"></circle>
+                    <circle cx="70" cy="70" r="70" id="hh" class="hc"></circle>
                 </svg>
                 <div id="hours">00</div>
             </div>
             <div class="circle" style="--clr:#fee800;">
                 <div class="dots min_dot"></div>
                 <svg>
-                    <circle cx="70" cy="70" r="70"></circle>
-                    <circle cx="70" cy="70" r="70" id="mm"></circle>
+                    <circle cx="70" cy="70" r="70" class="mc"></circle>
+                    <circle cx="70" cy="70" r="70" id="mm" class="mc"></circle>
                 </svg>
                 <div id="minutes">00</div>
 
@@ -71,8 +78,8 @@
             <div class="circle" style="--clr:#04fc43;">
                 <div class="dots sec_dot"></div>
                 <svg>
-                    <circle cx="70" cy="70" r="70"></circle>
-                    <circle cx="70" cy="70" r="70" id="ss"></circle>
+                    <circle cx="70" cy="70" r="70" class="sc"></circle>
+                    <circle cx="70" cy="70" r="70" id="ss" class="sc"></circle>
                 </svg>
                 <div id="seconds">00</div>
             </div>
@@ -114,9 +121,9 @@
             seconds.innerHTML = s + "<br><span>Seconds<span>";
 
             dd.style.strokeDashoffset = 440 - (440 * d) / 365;
-            hh.style.strokeDashoffset = 440 - (440 * h) / 24;
-            mm.style.strokeDashoffset = 440 - (440 * m) / 60;
-            ss.style.strokeDashoffset = 440 - (440 * s) / 60;
+            hh.style.strokeDashoffset = 440 - (270 * h) / 24;
+            mm.style.strokeDashoffset = 440 - (300 * m) / 60;
+            ss.style.strokeDashoffset = 440 - (280 * s) / 60;
 
             day_dot.style.transform = `rotateZ(${(d * 360 / 365) - 270}deg)`;
             hr_dot.style.transform = `rotateZ(${(h * 360 / 24) - 270}deg)`;
@@ -129,6 +136,50 @@
                 document.querySelector(".newYear").style.display = "block";
             }
         });
+
+        function runOnMobile() {
+
+        }
+        // Check if the screen width is 768px or less (common breakpoint for mobile)
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            runOnMobile();
+            console.log("Running on mobile!");
+            let elements = document.getElementsByClassName('sc');
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].setAttribute('r', '45');
+                elements[i].setAttribute('cx', '45');
+                elements[i].setAttribute('cy', '45');
+            }
+            elements = document.getElementsByClassName('dc');
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].setAttribute('r', '45');
+                elements[i].setAttribute('cx', '45');
+                elements[i].setAttribute('cy', '45');
+            }
+            elements = document.getElementsByClassName('mc');
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].setAttribute('r', '45');
+                elements[i].setAttribute('cx', '45');
+                elements[i].setAttribute('cy', '45');
+            }
+            elements = document.getElementsByClassName('hc');
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].setAttribute('r', '45');
+                elements[i].setAttribute('cx', '45');
+                elements[i].setAttribute('cy', '45');
+            }
+
+            day_dot.style.transform = `rotateZ(${(d * 360 / 365) - 270}deg)`;
+            hr_dot.style.transform = `rotateZ(${(h * 360 / 24) - 270}deg)`;
+            min_dot.style.transform = `rotateZ(${(m * 360 / 60) - 270}deg)`;
+            sec_dot.style.transform = `rotateZ(${(s * 360 / 60) - 270}deg)`;
+
+            dd.style.strokeDashoffset = 440 - (440 * d) / 365;
+            hh.style.strokeDashoffset = 440 - (440 * h) / 24;
+            mm.style.strokeDashoffset = 440 - (440 * m) / 60;
+            ss.style.strokeDashoffset = 440 - (440 * s) / 60;
+        }
+
     </script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>

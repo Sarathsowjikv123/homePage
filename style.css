@@ -260,27 +260,26 @@ nav ul  a:hover{
         height: fit-content;
         background:#000 ;
         font-family: 'Poppins', sans-serif;
-        width: 650px;
     }
     #time{
         display: flexbox;
-        gap: 10px;
+        gap: 3px;
         align-items: center;
         justify-content: center;
     }
     #time .circle{
         position: relative;
-        width: 150px;
-        height: 150px;
+        width: fit-content;
+        height: fit-content;
         display: flex;
         justify-content: center;
         align-items: center;
-        rotate: -90deg;
+        
     }
     #time .circle svg{
         position: relative;
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
     }
     #time .circle svg circle{
         width:100%;
@@ -294,14 +293,14 @@ nav ul  a:hover{
     #time .circle svg circle:nth-child(2){
         stroke: var(--clr);
         stroke-dasharray: 440;
-        stroke-dashoffset: 440;
+        /* stroke-dashoffset: 440; */
     }
     #time div{
         position: absolute;
         text-align: center;
         font-weight: 500;
         color: #fff;
-        font-size: 1.6em ;
+        font-size: 1.3em ;
     }
     #time div span{
         margin-top: 0px;
@@ -323,7 +322,7 @@ nav ul  a:hover{
         border-radius: 50%;
         display: flex;
         justify-content: center;
-        align-items: flex-start;
+        /* align-items: flex-start; */
         z-index: 1;
     }
     #time .dots::before{
